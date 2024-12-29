@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memahami REST API Backend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body
+    class="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 dark:text-white">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+            <h1 class="text-4xl font-bold tracking-tight sm:text-6xl mb-6">
+                Memahami REST API Backend
+            </h1>
+            <p class="text-lg leading-8 text-gray-600 dark:text-gray-300">
+                Kenalin aku Fausta 😎, disini aku akan jelasin ke kalian nih apa itu REST API pada Backend. Klik button
+                dibawah ini yaaa hehehe
+            </p>
+            <div class="mt-10">
+                <a id="get-started-button"
+                    class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Backend Introduction Section -->
+    <section id="backend-introduction" class="py-16 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="mx-auto max-w-7xl">
+            <h2 class="text-3xl font-bold mb-6 text-center">
+                Apa itu <span class="text-yellow-500">Backend </span>?
+            </h2>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                <p class="text-amber-100 text-lg leading-relaxed mb-6 text-center">
+                    Backend adalah bagian "di belakang layar" dari sebuah aplikasi yang menangani logika, penyimpanan
+                    data, dan pemrosesan. Gampangnya backend itu bagian belakang dari aplikasi yang nggak keliatan, tapi
+                    dia yang ngatur semua supaya aplikasi bisa jalan dengan baik.
+                    Misalnya, kalau kita pakai aplikasi buat belanja, backend yang ngatur data produk dan pembayaran.
+                    Jadi, bisa dibilang backend itu kayak mesin di mobil: nggak kelihatan, tapi bikin semua berfungsi.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="flex items-start gap-3">
+                        <svg class="h-40 w-40 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="font-semibold">Pengelolaan Data</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-justify">Backend itu bertugas menyimpan,
+                                mengolah, dan mengamankan data yang penting bagi aplikasi kita, seperti
+                                informasi pengguna, transaksi, atau produk. Backend memastikan data tersebut dapat
+                                diakses atau
+                                dimodifikasi saat diperlukan oleh aplikasi.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="h-40 w-40 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="font-semibold">Logika Bisnis</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-justify">Backend juga yang ngatur segala
+                                perhitungan atau
+                                proses yang terjadi di aplikasi.
+                                Misalnya, menghitung total belanja, memproses pembayaran, atau mengecek apakah stok
+                                produk masih tersedia.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="h-40 w-40 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                        <div>
+                            <h3 class="font-semibold">Keamanan</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-justify">Backend juga yang bertugas untuk
+                                menjaga
+                                keamanan data dan aplikasi.
+                                Dia memastikan hanya orang yang berhak yang bisa mengakses informasi tertentu, dengan
+                                memverifikasi identitas pengguna (autentikasi) dan memberi izin akses (otorisasi).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REST API Section -->
+    <section class="py-16 px-6">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid gap-12 lg:grid-cols-2">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">
+                        Apa itu <span class="text-yellow-500">REST API </span>?
+                    </h2>
+                    <h3 class="text-xl font-semibold mb-3">Penjelasan Sederhana</h3>
+                    <p class="text-amber-100">
+                        Jadi, REST API itu ibarat cara komputer atau aplikasi ngobrol satu sama lain lewat internet.
+                        Mereka pakai protokol yang namanya HTTP, yang sering kita temui saat browsing di web. Bayangin
+                        aja kayak aplikasi di ponsel kamu yang butuh data dari server atau aplikasi lain supaya bisa
+                        jalan. Nah, REST API ini bikin itu semua jadi lebih gampang dan cepat, jadi aplikasi bisa saling
+                        tukar data dengan lancar. Biasanya sih, REST API sering dipakai di sistem yang pake arsitektur
+                        mikroservis, yang artinya tiap bagian aplikasi bisa nyambung dan kerja bareng tanpa ganggu satu
+                        sama lain.
+                    </p>
+                    <br>
+                    <h3 class="text-2xl font-semibold mb-4">Gimana Cara Kerjanya?</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="h-11 w-11 text-green-500 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold">Mirip Pesan Makanan</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Jadi gini, tiap kali kamu ngirim permintaan
+                                    itu kayak kamu pesen makanan di restoran. Semua udah lengkap, tinggal diproses deh!
+                                    Dapur (server) langsung ngerti apa yang harus disiapin</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="h-8 w-8 text-green-500 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold">Komunikasi Tanpa Ribet</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Kayak kamu pake menu di restoran, tinggal
+                                    pilih apa yang diinginin, terus dapur langsung ngerti apa yang harus disiapin.
+                                    Gampang kan?</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="h-8 w-8 text-green-500 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold">Metode Standar yang Gampang</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Biar makin jelas, misalnya kamu pesan
+                                    (POST), cek pesanan (GET), ganti pesanan (PUT), atau batalin pesanan (DELETE).
+                                    Simple banget kan?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6">Flow pada REST API</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full">
+                                    <svg class="h-6 w-6 text-blue-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-semibold">Aplikasi Kamu <span
+                                            class="text-gray-600 dark:text-gray-300">(Si
+                                            Pelanggan)</span></h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">Kamu yang ngajuin permintaan,
+                                        kayak minta sesuatu yang dibutuhkan</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full">
+                                    <svg class="h-6 w-6 text-purple-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-semibold">API <span class="text-gray-600 dark:text-gray-300">(Si
+                                            Pelayan)</span></h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">Pelayan ini yang nganterin
+                                        permintaan ke tempat yang tepat, terus bawa balik jawaban</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full">
+                                    <svg class="h-6 w-6 text-green-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-semibold">Database <span
+                                            class="text-gray-600 dark:text-gray-300">(Dapur)</span></h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">Dapur yang nyimpen dan siapin
+                                        data sesuai permintaan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Kenapa Harus Pakai REST API ?</h3>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li>🌐 Bisa dipakai di semua bahasa pemrograman</li>
+                            <li>🚀 Cepat dan efisien</li>
+                            <li>🔒 Cara aman buat berbagi data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HTTP Methods Section -->
+    <section class="py-16 px-6 bg-gray-100 dark:bg-gray-900">
+        <div class="mx-auto max-w-7xl">
+            <h2 class="text-3xl font-bold mb-12 text-center">Metode HTTP di <span class="text-yellow-500">REST
+                    API</span></h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div id="get-method"
+                    class="method-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer"
+                    data-method="get">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">GET</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Metode ini dipakai buat "ngambil" data dari suatu tempat. Jadi, kalau kamu cuma butuh lihat
+                        data, pakai GET aja.
+                        Ini kayak nanya ke toko, "Ada barang ini nggak?"
+                    </p>
+                </div>
+                <div class="method-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer"
+                    data-method="post">
+                    <h3 class="text-xl font-semibold mb-4 text-green-600">POST</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Kalau kamu mau kirim data, misalnya buat isi form atau upload sesuatu, pakai POST.
+                        Ini kayak kasih order ke restoran, "Saya mau pesan ini, nih!"
+                    </p>
+                </div>
+                <div class="method-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer"
+                    data-method="put">
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-600">PUT</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Kalau data yang ada perlu diperbarui, pakai PUT. Jadi, kalau datanya udah ada, tinggal update
+                        aja.
+                        Misalnya, kalau kamu mau ganti alamat pengiriman, ya pakai PUT.
+                    </p>
+                </div>
+                <div class="method-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer"
+                    data-method="delete">
+                    <h3 class="text-xl font-semibold mb-4 text-red-600">DELETE</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Kalau kamu pengen ngapus data, tinggal pakai DELETE. Ini kayak bilang ke restoran, "Hapus
+                        pesanan saya!"
+                    </p>
+                </div>
+            </div>
+            <div id="example-container" class="mt-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hidden">
+                <h3 class="text-xl font-semibold mb-4">Contoh</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-2">Permintaan</h4>
+                        <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded-md" id="request-example"></pre>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">Respons</h4>
+                        <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded-md" id="response-example"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Codes Section -->
+    <section class="py-16 px-6">
+        <div class="mx-auto max-w-7xl">
+            <h2 class="text-3xl font-bold mb-12 text-center">Kode Status HTTP yang Sering Dipakai</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-green-500">2xx: Berhasil! 🎉</h3>
+                    <ul class="list-disc marker:text-green-500 space-y-2 pl-5">
+                        <li>
+                            <span class="font-semibold">200</span> - OK
+                            <p class="text-gray-600 dark:text-gray-300">Artinya permintaan kamu berhasil diproses. Semua
+                                aman deh pokoknya</p>
+                        </li>
+                        <li>
+                            <span class="font-semibold">201</span> - Created
+                            <p class="text-gray-600 dark:text-gray-300">Permintaan sukses, dan sesuatu yang baru
+                                berhasil dibuat. Misalnya bikin akun baru, gitu.</p>
+                        </li>
+                        <li>
+                            <span class="font-semibold">204</span> - No Content
+                            <p class="text-gray-600 dark:text-gray-300">Berhasil sih, tapi nggak ada data yang dikirim
+                                balik. Ini kayak bilang "Oke, udah kelar!" tanpa cerita lebih lanjut.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-red-500">4xx: Error di Kamu 😅</h3>
+                    <ul class="list-disc marker:text-red-500 space-y-2 pl-5">
+                        <li>
+                            <span class="font-semibold">400</span> - Bad Request
+                            <p class="text-gray-600 dark:text-gray-300">Permintaan kamu ada yang salah, kayak typo atau
+                                lupa formatnya.</p>
+                        </li>
+                        <li>
+                            <span class="font-semibold">401</span> - Unauthorized
+                            <p class="text-gray-600 dark:text-gray-300">Akses ditolak, bro! Kamu butuh login dulu atau
+                                kasih izin yang bener.</p>
+                        </li>
+                        <li>
+                            <span class="font-semibold">404</span> - Not Found
+                            <p class="text-gray-600 dark:text-gray-300">Halah, yang kamu cari nggak ada. Salah alamat,
+                                mungkin?</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-gray-200 dark:bg-gray-800">
+        <div class="mx-auto max-w-7xl text-center">
+            <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-200">
+                Let's Stay Connected!
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                Semoga kalian ngerti apa yang aku jelasin tentang REST API yaaaa, hehehe 🥳.
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                Kalau masih bingung hubungi aku lewat link di bawah ini
+            </p>
+            <div class="mt-6 flex justify-center gap-4">
+                <a href="https://github.com/FaustaAkbar" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/fausta_akbarr/" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/faustaakbar/" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const examples = {
+            get: {
+                request: 'GET /api/produk',
+                response: `{
+  "produk": [
+    {
+      "id": 1,
+      "nama": "Laptop",
+      "harga": 15000000
+    },
+    {
+      "id": 2,
+      "nama": "Smartphone",
+      "harga": 8000000
+    }
+  ]
+}`
+            },
+            post: {
+                request: `POST /api/pesanan
+Content-Type: application/json
+
+{
+  "produk_id": 1,
+  "jumlah": 2
+}`,
+                response: `{
+  "pesanan_id": 101,
+  "produk_id": 1,
+  "jumlah": 2,
+  "status": "dikonfirmasi",
+  "dibuat_pada": "2024-01-01T12:00:00Z"
+}`
+            },
+            put: {
+                request: `PUT /api/profil
+Content-Type: application/json
+
+{
+  "alamat": "Jalan Baru No. 123",
+  "telepon": "081234567890"
+}`,
+                response: `{
+  "user_id": 1,
+  "alamat": "Jalan Baru No. 123",
+  "telepon": "081234567890",
+  "diperbarui_pada": "2024-01-01T12:30:00Z"
+}`
+            },
+            delete: {
+                request: 'DELETE /api/keranjang/5',
+                response: `{
+  "pesan": "Item berhasil dihapus dari keranjang",
+  "keranjang_id": 5
+}`
+            }
+        };
+
+        document.querySelectorAll('.method-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const method = card.dataset.method;
+                const example = examples[method];
+                document.getElementById('request-example').textContent = example.request;
+                document.getElementById('response-example').textContent = example.response;
+                document.getElementById('example-container').classList.remove('hidden');
+                document.querySelectorAll('.method-card').forEach(c => {
+                    c.classList.remove('ring-2', 'ring-blue-500');
+                });
+                card.classList.add('ring-2', 'ring-blue-500');
+            });
+        });
+        document.getElementById("get-started-button").addEventListener("click", function () {
+            document.getElementById("backend-introduction").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const getMethodElement = document.getElementById("get-method");
+            if (getMethodElement) {
+                getMethodElement.click();
+            }
+        });
+        // Dark mode toggle
+        function initializeDarkMode() {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+        }
+        initializeDarkMode();
+    </script>
+</body>
+
+</html>
