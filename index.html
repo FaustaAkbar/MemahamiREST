@@ -37,7 +37,7 @@
         </div>
     </section>
 
-    <!-- Backend Introduction Section -->
+    <!-- Backend Section -->
     <section id="backend-introduction" class="py-16 px-6 bg-gray-50 dark:bg-gray-900">
         <div class="mx-auto max-w-7xl">
             <h2 class="text-3xl font-bold mb-6 text-center">
@@ -215,11 +215,11 @@
                         </div>
                     </div>
                     <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4">Kenapa Harus Pakai REST API ?</h3>
+                        <h3 class="text-xl font-semibold mb-4">REST API buat apa sih ?</h3>
                         <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-                            <li>🌐 Bisa dipakai di semua bahasa pemrograman</li>
-                            <li>🚀 Cepat dan efisien</li>
-                            <li>🔒 Cara aman buat berbagi data</li>
+                            <li>🗂️ CRUD data yang disimpan di server</li>
+                            <li>💳 Integrasi ke layanan lain seperti payment gateway atau media sosial</li>
+                            <li>🔗 Sharing data antar sistem, terutama dalam arsitektur microservices</li>
                         </ul>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
         </div>
     </section>
 
-    <!-- HTTP Methods Section -->
+    <!-- HTTP Section -->
     <section class="py-16 px-6 bg-gray-100 dark:bg-gray-900">
         <div class="mx-auto max-w-7xl">
             <h2 class="text-3xl font-bold mb-12 text-center">Metode HTTP di <span class="text-yellow-500">REST
@@ -285,7 +285,7 @@
         </div>
     </section>
 
-    <!-- Status Codes Section -->
+    <!-- Status Section -->
     <section class="py-16 px-6">
         <div class="mx-auto max-w-7xl">
             <h2 class="text-3xl font-bold mb-12 text-center">Kode Status HTTP yang Sering Dipakai</h2>
@@ -447,7 +447,7 @@ Content-Type: application/json
                 getMethodElement.click();
             }
         });
-        // Dark mode toggle
+
         function initializeDarkMode() {
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.documentElement.classList.add('dark');
